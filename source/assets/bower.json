@@ -1,0 +1,32 @@
+{
+  "name": "airfront-site",
+  "version": "0.0.0",
+  "homepage": "https://github.com/paulmsmith/airfront-site",
+  "authors": [
+    "Paul Smith <github@airfront.co.uk>"
+  ],
+  "description": "bower components for airfront.co.uk",
+  "keywords": [
+    "js",
+    "sass",
+    "gulp",
+    "middleman",
+    "html",
+    "css"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.1"
+  },
+  "devDependencies": {
+    "modernizr": "~2.8.3"
+  }
+}

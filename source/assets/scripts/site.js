@@ -1,2 +1,2 @@
-//= require "_libs.js"
-//= require "_components.js"
+//= require "libs.js"
+//= require "components.js"

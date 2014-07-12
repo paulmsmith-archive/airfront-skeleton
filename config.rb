@@ -24,6 +24,8 @@ page "*" do
 	@sharedPath = siteConfig["sharedPath"]
 	@componentPath = siteConfig["componentPath"]
 	@imagePath = siteConfig["imagePath"]
+	@useModernizr = siteConfig["useModernizr"]
+	@sitewideBodyClass = @siteID
 end
 
 # for ajax templates we don't want a layout
@@ -50,6 +52,8 @@ page "**/*_ajax*", :layout => false
 ################################################################
 # Helpers
 ################################################################
+require "app/helpers/custom_helpers"
+helpers CustomHelpers
 
 activate :relative_assets
 set :debug_assets, false
@@ -78,6 +82,7 @@ config[:helpers_dir] = 'app/helpers'
 
 after_configuration do
 	sprockets.append_path 'partials/components'
+	sprockets.append_path 'assets/bower_components'
 end
 
 ################################################################

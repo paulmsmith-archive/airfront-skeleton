@@ -29,7 +29,8 @@
   	"imagePath" : "assets/images",
     "sourcePath": "source",
     "destPath": "build",
-    "assetsPath": "assets"
+    "assetsPath": "assets",
+    "useModernizr": "true"
   },
   "dependencies": {},
   "devDependencies": {

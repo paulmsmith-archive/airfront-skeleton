@@ -30,7 +30,7 @@ var	pkg = require('./package.json'),
 	imagesDirectoryName = 'images',
 	templatesDirectoryName = 'templates',
 
-	jsIncludesFile = assetsSourcePath + "/" + jsDirectoryName + "/" + "_components.js";
+	jsIncludesFile = assetsSourcePath + "/" + jsDirectoryName + "/" + "components.js";
 	cssImportsFile = assetsSourcePath + "/" + cssDirectoryName + "/" + "_components.scss";
 
 /* ###########################################################
@@ -116,8 +116,6 @@ gulp.task('new-comp', function(done){
 		}
 	],
 	function (answers) {
-		
-		var SassImportsFile = ""
 
 		// this creates the component dir, if it exists it will return false
 		var dir = createTools.mkdirSync(path.join(componentsPath + '/' + answers.name), "Created directory: '" + path.join(componentsPath + '/' + answers.name) + "'");
@@ -129,13 +127,15 @@ gulp.task('new-comp', function(done){
 				console.log("Created: " + jsFilePath);
 				jsIncludesFileOpen = fs.createWriteStream(jsIncludesFile, {'flags': 'a'});
 				jsIncludesFileOpen.write('//= require "../../partials/components/' + answers.name + '/' + answers.name + '.js"\n');
-				console.log("Included component JS into _components.js!");
+				console.log("Included component JS into components.js!");
 			} else {
 				console.log("JS file was not created.");
 			}
 			if(answers.cssfile == "yes") {
 				var cssFilePath = componentsPath + '/' + answers.name + '/' + answers.name + '.scss';
-				fs.createReadStream('app/templates/component.js').pipe(fs.createWriteStream(cssFilePath));
+				fs.createReadStream('app/templates/_component.scss').pipe(fs.createWriteStream(cssFilePath));
+				cssImportsFileOpen = fs.createWriteStream(cssImportsFile, {'flags': 'a'});
+				cssImportsFileOpen.write('@import "../../partials/components/' + answers.name + '/' + answers.name + '"\n');
 				console.log("Created: " + jsFilePath);
 			} else {
 				console.log("Sass file was not created.");
