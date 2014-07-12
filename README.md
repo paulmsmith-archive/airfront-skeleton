@@ -13,6 +13,14 @@ If you see something you think can be re-factored then feel free to explain why 
 Getting started
 -------------
 
+Clone this repo onto your machine and browse to it's root working directory. For example:
+
+```
+cd ~/sites
+git clone https://github.com/paulmsmith/airfront-site.git demo
+cd demo
+```
+
 Requirements:
 
 ###Ruby 1.9.3+
@@ -37,8 +45,9 @@ Now from within / of where-ever you have cloned this repo you can install all th
 bundle install
 ```
 
+All being well, this will have placed middleman and it's dependancies on your system. Now move onto Node
+
 ###NodeJS v0.10.26+
 
-Clone this repo onto your machine and browse to it's root working directory.
 
 
