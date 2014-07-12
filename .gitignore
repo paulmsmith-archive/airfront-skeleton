@@ -4,6 +4,7 @@
 # middleman/ruby related
 ################################################################
 /.bundle
+#/source/assets/bower_components
 
 # --------------------------------------------------------------
 # Ignore the build directory
