@@ -1,7 +1,8 @@
 module CustomHelpers
 
+	# handle the body class. first check with the sitewide var if a global class has been defined
+	# then add any page-level vars to it.
 	def body_class
-
 		thisBodyClass = "";
 		if @sitewideBodyClass
 			if thisBodyClass != ""
