@@ -15,23 +15,29 @@ Getting started
 
 Requirements:
 
-- Ruby 1.9.3+
+###Ruby 1.9.3+
+
 To check what version you have you can do:
+
 ```
 ruby -v
 ```
+
 If you don't have ruby (command not recognised) or the wrong version. Have a look at using RVM (http://rvm.io/) and come back.
 
 Assuming you have Ruby and RubyGems you can install bundler with:
+
 ```
 gem install bundler
 ```
+
 Now from within / of where-ever you have cloned this repo you can install all the ruby dependencies with this command:
+
 ```
 bundle install
 ```
 
-- NodeJS v0.10.26+
+###NodeJS v0.10.26+
 
 Clone this repo onto your machine and browse to it's root working directory.
 
