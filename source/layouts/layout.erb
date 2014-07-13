@@ -1,15 +1,14 @@
 <!doctype html>
 <html>
-	<head>
-		<%= partial(@sharedPath + "/head",
-			:locals => { 
-				:modifiers => ["foo"] 
-		})%>   
-		<%= stylesheet_link_tag "site" %>
-		<%= javascript_include_tag  "site" %>
-
-	</head>
+<head>
+	<%= partial(@sharedPath + "/head",
+		:locals => { 
+			:modifiers => ["foo"] 
+	})%>   
+	<%= stylesheet_link_tag "site" %>
+	<%= javascript_include_tag  "site" %>
+</head>
 <body class="<%= body_class %>">
-<%= yield %>
+	<%= yield %>
 </body>
 </html>

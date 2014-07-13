@@ -49,5 +49,16 @@ All being well, this will have placed middleman and it's dependancies on your sy
 
 ###NodeJS v0.10.26+
 
+Check your node version in terminal the same way as you do with Ruby:
 
+```
+node -v
+```
+
+If you don't have node or have the wrong version the documentation for node can be found here: http://nodejs.org/
+
+Credits
+-------------
+
+It would be remiss of me not to thank the following people for their execellent work:
 

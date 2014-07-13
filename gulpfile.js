@@ -80,6 +80,7 @@ gulp.task('new-comp', function(done){
 	}
 
 	inquirer.prompt([
+		
 		{
 			type: 'input',
 			name: 'name',
@@ -96,6 +97,7 @@ gulp.task('new-comp', function(done){
 				})
 			}
 		},
+
 		{
 			type: 'list',
 			name: 'jsfile',
@@ -105,6 +107,7 @@ gulp.task('new-comp', function(done){
 				"no"
 			]
 		},
+		
 		{
 			type: 'list',
 			name: 'cssfile',
@@ -114,6 +117,7 @@ gulp.task('new-comp', function(done){
 				"no"
 			]
 		}
+		
 	],
 	function (answers) {
 
@@ -121,6 +125,7 @@ gulp.task('new-comp', function(done){
 		var dir = createTools.mkdirSync(path.join(componentsPath + '/' + answers.name), "Created directory: '" + path.join(componentsPath + '/' + answers.name) + "'");
 
 		if(dir == true) {
+			
 			if(answers.jsfile == "yes") {
 				var jsFilePath = componentsPath + '/' + answers.name + '/' + answers.name + '.js';
 				fs.createReadStream('app/templates/component.js').pipe(fs.createWriteStream(jsFilePath));
@@ -131,6 +136,7 @@ gulp.task('new-comp', function(done){
 			} else {
 				console.log("JS file was not created.");
 			}
+
 			if(answers.cssfile == "yes") {
 				var cssFilePath = componentsPath + '/' + answers.name + '/' + answers.name + '.scss';
 				fs.createReadStream('app/templates/_component.scss').pipe(fs.createWriteStream(cssFilePath));
@@ -140,6 +146,7 @@ gulp.task('new-comp', function(done){
 			} else {
 				console.log("Sass file was not created.");
 			}
+
 		} else {
 			console.log("There was an error, most probably component name already exists!");
 		}
