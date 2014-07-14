@@ -30,7 +30,7 @@ var	pkg = require('./package.json'),
 	imagesDirectoryName = 'images',
 	templatesDirectoryName = 'templates',
 
-	jsIncludesFile = assetsSourcePath + "/" + jsDirectoryName + "/" + "components.js";
+	jsIncludesFile = assetsSourcePath + "/" + jsDirectoryName + "/" + "_components.js";
 	cssImportsFile = assetsSourcePath + "/" + cssDirectoryName + "/" + "_components.scss";
 
 /* ###########################################################

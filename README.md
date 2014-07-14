@@ -13,17 +13,9 @@ If you see something you think can be re-factored then feel free to explain why 
 Getting started
 -------------
 
-Clone this repo onto your machine and browse to it's root working directory. For example:
+###Requirements:
 
-```
-cd ~/sites
-git clone https://github.com/paulmsmith/airfront-site.git demo
-cd demo
-```
-
-Requirements:
-
-###Ruby 1.9.3+
+####Ruby 1.9.3+
 
 To check what version you have you can do:
 
@@ -47,7 +39,7 @@ bundle install
 
 All being well, this will have placed middleman and it's dependancies on your system. Now move onto Node
 
-###NodeJS v0.10.26+
+###NodeJS 0.10.26+
 
 Check your node version in terminal the same way as you do with Ruby:
 
@@ -57,8 +49,18 @@ node -v
 
 If you don't have node or have the wrong version the documentation for node can be found here: http://nodejs.org/
 
-Credits
+###Clone airfront-skeleton
+
+Clone this repo onto your machine and browse to it's root working directory. For example:
+
+```
+cd ~/sites
+git clone https://github.com/paulmsmith/airfront-site.git demo
+cd demo
+```
+
+Acknowledgements
 -------------
 
-It would be remiss of me not to thank the following people for their execellent work:
+A massive thank you to the following people for their excellent work:
 

@@ -4,6 +4,16 @@ pkgJson = pkgfile.read
 pkg = JSON.parse(pkgJson)
 siteConfig = pkg["siteConfig"]
 
+set :site, { 
+	:name => siteConfig["longname"],
+	:id => siteConfig["siteID"],
+	:version => pkg["version"],
+	:sharedPath => siteConfig["sharedPath"],
+	:componentPath => siteConfig["componentPath"],
+	:imagePath => siteConfig["imagePath"],
+	:useModernizr => siteConfig["useModernizr"]
+}
+
 ################################################################
 # Compass
 ################################################################
@@ -17,16 +27,16 @@ siteConfig = pkg["siteConfig"]
 # Page options, layouts, aliases and proxies
 ################################################################
 
-page "*" do 
-	@sitename = siteConfig["longname"]
-	@siteID = siteConfig["siteID"]
-	@version = pkg["version"]
-	@sharedPath = siteConfig["sharedPath"]
-	@componentPath = siteConfig["componentPath"]
-	@imagePath = siteConfig["imagePath"]
-	@useModernizr = siteConfig["useModernizr"]
-	@sitewideBodyClass = @siteID
-end
+# page "*" do 
+# 	@sitename = siteConfig["longname"]
+# 	@siteID = siteConfig["siteID"]
+# 	@version = pkg["version"]
+# 	@sharedPath = siteConfig["sharedPath"]
+# 	@componentPath = siteConfig["componentPath"]
+# 	@imagePath = siteConfig["imagePath"]
+# 	@useModernizr = siteConfig["useModernizr"]
+# 	@sitewideBodyClass = @siteID
+# end
 
 # for ajax templates we don't want a layout
 page "**/*_ajax*", :layout => false
@@ -55,7 +65,6 @@ page "**/*_ajax*", :layout => false
 require "app/helpers/custom_helpers"
 helpers CustomHelpers
 
-activate :relative_assets
 set :debug_assets, false
 
 # Reload the browser automatically whenever files change
@@ -83,6 +92,7 @@ config[:helpers_dir] = 'app/helpers'
 after_configuration do
 	sprockets.append_path 'partials/components'
 	sprockets.append_path 'assets/bower_components'
+	sprockets.append_path 'assets/scripts'
 end
 
 ################################################################

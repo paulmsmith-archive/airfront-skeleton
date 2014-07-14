@@ -77,14 +77,14 @@ module CustomHelpers
 		"#{return_data}"
 	end
 
-	#handle partial so that html chunks of content can be passed into them
-	def partial_with_content(partial_name, partial_attributes, &block)
-		concat_safe_content partial(partial_name, :locals => {
+	#include handler for adding "partials" to the page. accepts hash with any data and some predefined ones for easier access
+	def include(obj, &block)
+		concat_safe_content partial("partials/" + obj[:path], :locals => {
 			:contents => capture_html(&block),
-			:attrs => partial_attributes,
-			:modifiers => partial_attributes[:modifiers],
-			:data => partial_attributes[:data],
-			:states => partial_attributes[:states]
+			:attrs => obj,
+			:modifiers => obj[:modifiers],
+			:data => obj[:data],
+			:states => obj[:states]
 		})
 	end
 

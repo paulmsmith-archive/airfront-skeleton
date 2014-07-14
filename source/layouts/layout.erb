@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<%= partial(@sharedPath + "/head",
+	<%= partial(site[:sharedPath] + "/head",
 		:locals => { 
 			:modifiers => ["foo"] 
 	})%>   

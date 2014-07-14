@@ -1,6 +1,6 @@
-/*------------------------------------*\
-    #RESET
-\*------------------------------------*/
+// #########################################################
+// generic reset half-inched from Mr Harry Roberts
+// #########################################################
 
 /**
  * As well as using normalize.css, it is often advantageous to remove all
@@ -17,10 +17,6 @@ hr {
     padding: 0;
 }
 
-
-
-
-
 /**
  * Give a help cursor to elements that give extra info on `:hover`.
  */
@@ -29,10 +25,6 @@ dfn[title] {
     cursor: help;
 }
 
-
-
-
-
 /**
  * Remove underlines from potentially troublesome elements.
  */
@@ -40,10 +32,6 @@ u,
 ins {
     text-decoration: none;
 }
-
-
-
-
 
 /**
  * Apply faux underlines to inserted text via `border-bottom`.
