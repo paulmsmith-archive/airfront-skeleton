@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "airfront.co.uk front-end build set-up using gulp, middleman, Sass, etc",
   "license": "MIT",
-  "repository": "https://github.com/paulmsmith/airfront-site",
+  "repository": "https://github.com/paulmsmith/airfront-skeleton.git",
   "author": {
     "name": "Paul Smith",
     "email": "github@airfront.co.uk",

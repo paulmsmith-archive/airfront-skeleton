@@ -79,6 +79,8 @@ ignore '**/.svn/**'
 ignore '**/.svn'
 ignore 'package.json'
 ignore 'gulpfile.js'
+ignore 'assets/bower.json'
+ignore 'assets/bower_components/**/*'
 
 config[:css_dir] = 'assets/styles'
 config[:js_dir] = 'assets/scripts'

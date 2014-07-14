@@ -34,16 +34,6 @@ var	pkg = require('./package.json'),
 	cssImportsFile = assetsSourcePath + "/" + cssDirectoryName + "/" + "_components.scss";
 
 /* ###########################################################
-overall watch task
-########################################################### */
-
-	// gulp.task('watch', function() {
-	// 	gulp.watch(sourcePath + '/' + templatesDirectoryName + '/**/*.html', ['process-html']);
-	// 	gulp.watch(uiSourcePath + '/' + jsDirectoryName + '/**/*.js', ['process-js']);
-	// 	gulp.watch(uiSourcePath + '/' + cssDirectoryName + '/**/*.scss', ['process-css']);
-	// });
-
-/* ###########################################################
 create a component file task
 ########################################################### */
 
@@ -154,6 +144,16 @@ gulp.task('new-comp', function(done){
 });
 
 /* ###########################################################
+overall watch task
+########################################################### */
+
+	// gulp.task('watch', function() {
+	// 	// gulp.watch(sourcePath + '/' + templatesDirectoryName + '/**/*.html', ['process-html']);
+	// 	// gulp.watch(uiSourcePath + '/' + jsDirectoryName + '/**/*.js', ['process-js']);
+	// 	// gulp.watch(uiSourcePath + '/' + cssDirectoryName + '/**/*.scss', ['process-css']);
+	// });
+
+/* ###########################################################
 base tasks 
 ########################################################### */
 
@@ -170,8 +170,17 @@ gulp.task('vars', function(){
 
 // run a local middleman server
 gulp.task('server', shell.task([
-  'middleman server -p1234'
+  'bundle exec middleman server -p1234'
 ]));
+
+// run a local middleman server
+gulp.task('mm-build', shell.task([
+  'bundle exec middleman build --verbose --clean'
+]));
+
+gulp.task('build',['mm-build'], function(){
+	console.log("something else");
+})
 
 gulp.task('default', function(){
 	console.log("default not setup yet!");
