@@ -7,7 +7,6 @@ var gulp = require('gulp'),
 	sass = require('gulp-ruby-sass'),
 	rename = require('gulp-rename'),
 	uglify = require('gulp-uglify'),
-	autoprefixer = require('gulp-autoprefixer'),
 	connect = require('gulp-connect'),
     inquirer = require('inquirer'),
     template = require('gulp-template'),
@@ -31,13 +30,13 @@ var	pkg = require('./package.json'),
 	templatesDirectoryName = 'templates',
 
 	jsIncludesFile = assetsSourcePath + "/" + jsDirectoryName + "/" + "_components.js";
-	cssImportsFile = assetsSourcePath + "/" + cssDirectoryName + "/" + "_components.scss";
+	cssImportsFile = assetsSourcePath + "/" + cssDirectoryName + "/" + "component/_component.imports.scss";
 
 /* ###########################################################
 create a component file task
 ########################################################### */
 
-gulp.task('new-comp', function(done){
+gulp.task('new-component', function(done){
 
 	var createTools = {
 		// makes a directory for a given path
@@ -74,7 +73,7 @@ gulp.task('new-comp', function(done){
 		{
 			type: 'input',
 			name: 'name',
-			message: 'What is the name for your component?',
+			message: 'Please provide a name for your component',
 			validate: function(input) {
 				// Declare function as asynchronous, and save the done callback
 				var done = this.async();
@@ -122,17 +121,18 @@ gulp.task('new-comp', function(done){
 				console.log("Created: " + jsFilePath);
 				jsIncludesFileOpen = fs.createWriteStream(jsIncludesFile, {'flags': 'a'});
 				jsIncludesFileOpen.write('//= require "../../partials/components/' + answers.name + '/' + answers.name + '.js"\n');
-				console.log("Included component JS into components.js!");
+				console.log("Add sprockets require statement to: " + jsIncludesFile);
 			} else {
 				console.log("JS file was not created.");
 			}
 
 			if(answers.cssfile == "yes") {
-				var cssFilePath = componentsPath + '/' + answers.name + '/' + answers.name + '.scss';
+				var cssFilePath = componentsPath + '/' + answers.name + '/_' + answers.name + '.scss';
 				fs.createReadStream('app/templates/_component.scss').pipe(fs.createWriteStream(cssFilePath));
 				cssImportsFileOpen = fs.createWriteStream(cssImportsFile, {'flags': 'a'});
-				cssImportsFileOpen.write('@import "../../partials/components/' + answers.name + '/' + answers.name + '"\n');
-				console.log("Created: " + jsFilePath);
+				cssImportsFileOpen.write('@import "../../partials/components/' + answers.name + '/' + answers.name + '";\n');
+				console.log("Created: " + cssFilePath);
+				console.log("Included component sass into: " + cssImportsFile);
 			} else {
 				console.log("Sass file was not created.");
 			}

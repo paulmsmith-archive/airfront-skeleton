@@ -1,14 +1,18 @@
 <!doctype html>
 <html>
 <head>
-	<%= partial(site[:sharedPath] + "/head",
-		:locals => { 
-			:modifiers => ["foo"] 
-	})%>   
-	<%= stylesheet_link_tag "site" %>
-	<%= javascript_include_tag  "site" %>
+	<% include data = { :path => "shared/head"} do %><% end %>
 </head>
 <body class="<%= body_class %>">
+<%= yield_content :after_body_open %>
+
+<div class="doc">
 	<%= yield %>
+</div>
+<!-- /.doc -->
+
+<% include data = { :path => "shared/javascripts"} do %><% end %>
+<%= yield_content :before_body_close %>
+
 </body>
 </html>

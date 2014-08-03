@@ -3,3 +3,9 @@
 <meta name="viewport" content="initial-scale=1">
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 <title><%= current_page.data.title || "title not set" %></title>
+
+<% include data = { :path => "shared/head_stylesheets"} do %><% end %>
+<%= yield_content :head_stylesheets %>
+
+<% include data = { :path => "shared/head_javascripts"} do %><% end %>
+<%= yield_content :head_javascripts %>

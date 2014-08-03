@@ -87,7 +87,6 @@ config[:js_dir] = 'assets/scripts'
 config[:images_dir] = 'assets/images'
 config[:fonts_dir] = 'assets/fonts'
 config[:layouts_dir] = 'layouts'
-config[:partials_dir] = 'source/partials'
 config[:data_dir] = 'app/data'
 config[:helpers_dir] = 'app/helpers'
 
