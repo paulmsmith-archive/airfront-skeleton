@@ -1,0 +1,14 @@
+
+.something {
+
+	&__title {
+		
+		color: red;
+		
+		&:after {
+			display: block;
+		}
+
+	}
+
+}

@@ -15,3 +15,7 @@ gem "tzinfo-data", platforms: [:mswin, :mingw]
 
 #used in config.rb for reading the package.json file
 gem "json"
+
+gem 'sass', '>=3.3'
+
+gem 'compass', '>=1.0.0.alpha.21'
