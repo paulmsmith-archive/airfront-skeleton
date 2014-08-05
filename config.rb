@@ -62,7 +62,7 @@ page "**/*_ajax*", :layout => false
 ################################################################
 # Helpers
 ################################################################
-require "app/helpers/custom_helpers"
+require "resources/helpers/custom_helpers"
 helpers CustomHelpers
 
 set :debug_assets, false

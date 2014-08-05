@@ -3,6 +3,10 @@ title: "Test"
 bodyclass: ["test","blah"]
 ---
 
+	<% include data = { :path => "components/sample/sample",
+		:modifiers => ["test"] 
+	} do %><% end %>
+
 	<% include data = { :path => "components/test/test",
 		:modifiers => ["test"] 
 	} do %><% end %>

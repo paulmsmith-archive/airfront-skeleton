@@ -22,12 +22,14 @@ var	pkg = require('./package.json'),
 	destPath = siteConfig.destPath,
 	assetsDestPath = destPath + '/' + assetsPath,
 	componentsPath = sourcePath + '/partials/components',
+
 	// ui asset directory names
 	cssDirectoryName = 'styles',
 	fontsDirectoryName = 'fonts',
 	jsDirectoryName = 'scripts',
 	imagesDirectoryName = 'images',
 	templatesDirectoryName = 'templates',
+	resourcesPath = 'resources',
 
 	jsIncludesFile = assetsSourcePath + "/" + jsDirectoryName + "/" + "_components.js";
 	cssImportsFile = assetsSourcePath + "/" + cssDirectoryName + "/" + "component/_component.imports.scss";
@@ -89,6 +91,16 @@ gulp.task('new-component', function(done){
 
 		{
 			type: 'list',
+			name: 'htmlfile',
+			message: 'Does this component need a HTML include file?',
+			choices : [
+				"yes",
+				"no"
+			]
+		},
+
+		{
+			type: 'list',
 			name: 'jsfile',
 			message: 'Does this component need a Javascript file?',
 			choices : [
@@ -114,10 +126,16 @@ gulp.task('new-component', function(done){
 		var dir = createTools.mkdirSync(path.join(componentsPath + '/' + answers.name), "Created directory: '" + path.join(componentsPath + '/' + answers.name) + "'");
 
 		if(dir == true) {
+
+			if(answers.htmlfile == "yes") {
+				var htmlFilePath = componentsPath + '/' + answers.name + '/_' + answers.name + '.erb';
+				fs.createReadStream(resourcesPath + '/templates/_component.erb').pipe(fs.createWriteStream(htmlFilePath));
+				console.log("Created: " + htmlFilePath);
+			}
 			
 			if(answers.jsfile == "yes") {
 				var jsFilePath = componentsPath + '/' + answers.name + '/' + answers.name + '.js';
-				fs.createReadStream('app/templates/component.js').pipe(fs.createWriteStream(jsFilePath));
+				fs.createReadStream(resourcesPath + '/templates/component.js').pipe(fs.createWriteStream(jsFilePath));
 				console.log("Created: " + jsFilePath);
 				jsIncludesFileOpen = fs.createWriteStream(jsIncludesFile, {'flags': 'a'});
 				jsIncludesFileOpen.write('//= require "../../partials/components/' + answers.name + '/' + answers.name + '.js"\n');
@@ -128,7 +146,7 @@ gulp.task('new-component', function(done){
 
 			if(answers.cssfile == "yes") {
 				var cssFilePath = componentsPath + '/' + answers.name + '/_' + answers.name + '.scss';
-				fs.createReadStream('app/templates/_component.scss').pipe(fs.createWriteStream(cssFilePath));
+				fs.createReadStream(resourcesPath + '/templates/_component.scss').pipe(fs.createWriteStream(cssFilePath));
 				cssImportsFileOpen = fs.createWriteStream(cssImportsFile, {'flags': 'a'});
 				cssImportsFileOpen.write('@import "../../partials/components/' + answers.name + '/' + answers.name + '";\n');
 				console.log("Created: " + cssFilePath);
