@@ -1,0 +1,288 @@
+@mixin silent-relative {
+    position:relative;
+}
+
+%grid {
+    list-style:none;
+    margin:0;
+    padding:0;
+    margin-left:-$grid-gutter;
+    @if not $grid-use-markup-fix {
+        letter-spacing:-0.31em;
+    }
+}
+
+@if not $grid-use-markup-fix {
+    .opera:-o-prefocus,
+    %grid {
+        word-spacing:-0.43em;
+    }
+}
+
+.grid {
+    @extend %grid;
+}
+
+    %grid__item {
+        display:inline-block;
+        padding-left:$grid-gutter;
+        vertical-align:top;
+        @if $grid-mobile-first {
+            width:100%;
+        }
+        -webkit-box-sizing:border-box;
+           -moz-box-sizing:border-box;
+                box-sizing:border-box;
+        @if not $grid-use-markup-fix {
+            letter-spacing:normal;
+            word-spacing:normal;
+        }
+    }
+
+    .grid__item {
+        @extend %grid__item;
+    }
+
+%grid--rev {
+    direction:rtl;
+    text-align:left;
+
+    > %grid__item {
+        direction:ltr;
+        text-align:left;
+    }
+}
+
+.grid--rev {
+    @extend %grid--rev;
+}
+
+%grid--full {
+    margin-left:0;
+
+    > %grid__item {
+        padding-left:0;
+    }
+}
+
+.grid--full {
+    @extend %grid--full;
+}
+
+%grid--right {
+    text-align:right;
+
+    > %grid__item {
+        text-align:left;
+    }
+}
+
+.grid--right {
+    @extend %grid--right;
+}
+
+%grid--center {
+    text-align:center;
+
+    > %grid__item {
+        text-align:left;
+    }
+}
+
+.grid--center {
+    @extend %grid--center;
+}
+
+%grid--center {
+
+    > %grid__item {
+        vertical-align:middle;
+    }
+}
+
+.grid--center {
+    @extend %grid--center;
+}
+
+%grid--bottom {
+
+    > %grid__item {
+        vertical-align:bottom;
+    }
+}
+
+.grid--bottom {
+    @extend %grid--bottom;
+}
+
+%grid--narrow {
+    margin-left:-($grid-gutter / 2);
+
+    > %grid__item {
+        padding-left:$grid-gutter / 2;
+    }
+}
+
+.grid--narrow {
+    @extend %grid--narrow;
+}
+
+%grid--wide {
+    margin-left:-($grid-gutter * 2);
+
+    > %grid__item {
+        padding-left:$grid-gutter * 2;
+    }
+}
+
+.grid--wide {
+    @extend %grid--wide;
+}
+
+@mixin device-type($namespace:"", $gen-classes: false) {
+    $prefix: unquote("%") + $namespace;
+
+    #{$prefix}one-whole         { width:100%; }
+
+    #{$prefix}one-half          { width:50%; }
+
+    #{$prefix}one-third         { width:33.333%; }
+    #{$prefix}two-thirds        { width:66.666%; }
+
+    #{$prefix}one-quarter       { width:25%; }
+    #{$prefix}two-quarters      { @extend #{$prefix}one-half; }
+    #{$prefix}three-quarters    { width:75%; }
+
+    #{$prefix}one-fifth         { width:20%; }
+    #{$prefix}two-fifths        { width:40%; }
+    #{$prefix}three-fifths      { width:60%; }
+    #{$prefix}four-fifths       { width:80%; }
+
+    #{$prefix}one-sixth         { width:16.666%; }
+    #{$prefix}two-sixths        { @extend #{$prefix}one-third; }
+    #{$prefix}three-sixths      { @extend #{$prefix}one-half; }
+    #{$prefix}four-sixths       { @extend #{$prefix}two-thirds; }
+    #{$prefix}five-sixths       { width:83.333%; }
+
+    #{$prefix}one-eighth        { width:12.5%; }
+    #{$prefix}two-eighths       { @extend #{$prefix}one-quarter; }
+    #{$prefix}three-eighths     { width:37.5%; }
+    #{$prefix}four-eighths      { @extend #{$prefix}one-half; }
+    #{$prefix}five-eighths      { width:62.5%; }
+    #{$prefix}six-eighths       { @extend #{$prefix}three-quarters; }
+    #{$prefix}seven-eighths     { width:87.5%; }
+
+    #{$prefix}one-tenth         { width:10%; }
+    #{$prefix}two-tenths        { @extend #{$prefix}one-fifth; }
+    #{$prefix}three-tenths      { width:30%; }
+    #{$prefix}four-tenths       { @extend #{$prefix}two-fifths; }
+    #{$prefix}five-tenths       { @extend #{$prefix}one-half; }
+    #{$prefix}six-tenths        { @extend #{$prefix}three-fifths; }
+    #{$prefix}seven-tenths      { width:70%; }
+    #{$prefix}eight-tenths      { @extend #{$prefix}four-fifths; }
+    #{$prefix}nine-tenths       { width:90%; }
+
+    #{$prefix}one-twelfth       { width:8.333%; }
+    #{$prefix}two-twelfths      { @extend #{$prefix}one-sixth; }
+    #{$prefix}three-twelfths    { @extend #{$prefix}one-quarter; }
+    #{$prefix}four-twelfths     { @extend #{$prefix}one-third; }
+    #{$prefix}five-twelfths     { width:41.666%; }
+    #{$prefix}six-twelfths      { @extend #{$prefix}one-half; }
+    #{$prefix}seven-twelfths    { width:58.333%; }
+    #{$prefix}eight-twelfths    { @extend #{$prefix}two-thirds; }
+    #{$prefix}nine-twelfths     { @extend #{$prefix}three-quarters; }
+    #{$prefix}ten-twelfths      { @extend #{$prefix}five-sixths; }
+    #{$prefix}eleven-twelfths   { width:91.666%; }
+
+    @if $gen-classes == true {
+
+        $prefix-class: unquote(".") + $namespace;
+
+        #{$prefix-class}one-whole         { @extend #{$prefix}one-whole; }
+
+        #{$prefix-class}one-half          { @extend #{$prefix}one-half; }
+
+        #{$prefix-class}one-third         { @extend #{$prefix}one-third; }
+        #{$prefix-class}two-thirds        { @extend #{$prefix}two-thirds; }
+
+        #{$prefix-class}one-quarter       { @extend #{$prefix}one-quarter; }
+        #{$prefix-class}two-quarters      { @extend #{$prefix}one-half; }
+        #{$prefix-class}three-quarters    { @extend #{$prefix}three-quarters; }
+
+        #{$prefix-class}one-fifth         { @extend #{$prefix}one-fifth; }
+        #{$prefix-class}two-fifths        { @extend #{$prefix}two-fifths; }
+        #{$prefix-class}three-fifths      { @extend #{$prefix}three-fifths; }
+        #{$prefix-class}four-fifths       { @extend #{$prefix}four-fifths; }
+
+        #{$prefix-class}one-sixth         { @extend #{$prefix}one-sixth; }
+        #{$prefix-class}two-sixths        { @extend #{$prefix}one-third; }
+        #{$prefix-class}three-sixths      { @extend #{$prefix}one-half; }
+        #{$prefix-class}four-sixths       { @extend #{$prefix}two-thirds; }
+        #{$prefix-class}five-sixths       { @extend #{$prefix}five-sixths; }
+
+        #{$prefix-class}one-eighth        { @extend #{$prefix}one-eighth; }
+        #{$prefix-class}two-eighths       { @extend #{$prefix}one-quarter; }
+        #{$prefix-class}three-eighths     { @extend #{$prefix}three-eighths; }
+        #{$prefix-class}four-eighths      { @extend #{$prefix}one-half; }
+        #{$prefix-class}five-eighths      { @extend #{$prefix}five-eighths; }
+        #{$prefix-class}six-eighths       { @extend #{$prefix}three-quarters; }
+        #{$prefix-class}seven-eighths     { @extend #{$prefix}seven-eighths; }
+
+        #{$prefix-class}one-tenth         { @extend #{$prefix}one-tenth; }
+        #{$prefix-class}two-tenths        { @extend #{$prefix}one-fifth; }
+        #{$prefix-class}three-tenths      { @extend #{$prefix}three-tenths; }
+        #{$prefix-class}four-tenths       { @extend #{$prefix}two-fifths; }
+        #{$prefix-class}five-tenths       { @extend #{$prefix}one-half; }
+        #{$prefix-class}six-tenths        { @extend #{$prefix}three-fifths; }
+        #{$prefix-class}seven-tenths      { @extend #{$prefix}seven-tenths; }
+        #{$prefix-class}eight-tenths      { @extend #{$prefix}four-fifths; }
+        #{$prefix-class}nine-tenths       { @extend #{$prefix}nine-tenths; }
+
+        #{$prefix-class}one-twelfth       { @extend #{$prefix}one-twelfth; }
+        #{$prefix-class}two-twelfths      { @extend #{$prefix}one-sixth; }
+        #{$prefix-class}three-twelfths    { @extend #{$prefix}one-quarter; }
+        #{$prefix-class}four-twelfths     { @extend #{$prefix}one-third; }
+        #{$prefix-class}five-twelfths     { @extend #{$prefix}five-twelfths; }
+        #{$prefix-class}six-twelfths      { @extend #{$prefix}one-half; }
+        #{$prefix-class}seven-twelfths    { @extend #{$prefix}seven-twelfths; }
+        #{$prefix-class}eight-twelfths    { @extend #{$prefix}two-thirds; }
+        #{$prefix-class}nine-twelfths     { @extend #{$prefix}three-quarters; }
+        #{$prefix-class}ten-twelfths      { @extend #{$prefix}five-sixths; }
+        #{$prefix-class}eleven-twelfths   { @extend #{$prefix}eleven-twelfths; }
+
+    }
+
+}
+
+/* base width classes 
+---------------------------------------------------------------------------- */
+
+@include device-type($gen-classes: $grid-generate-classes);
+
+/* lap-only
+---------------------------------------------------------------------------- */
+
+@include lap {
+    @include device-type($namespace: lap--, $gen-classes: $grid-generate-classes);    
+}
+
+/* less-than or equal to portable
+---------------------------------------------------------------------------- */
+
+@include portable {
+    @include device-type($namespace: portable--, $gen-classes: $grid-generate-classes);
+}
+
+/* less-than-or-equal-to: palm
+---------------------------------------------------------------------------- */
+
+@include palm {
+    @include device-type($namespace: palm--, $gen-classes: $grid-generate-classes);
+}
+
+/* greater than or equal to desktop
+---------------------------------------------------------------------------- */
+
+@include desk {
+    @include device-type($namespace: desk--, $gen-classes: $grid-generate-classes);
+}
