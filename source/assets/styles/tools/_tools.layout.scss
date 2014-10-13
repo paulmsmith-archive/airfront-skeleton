@@ -1,0 +1,52 @@
+@mixin palm {
+	@if map-has-key($mq-breakpoints, palm) {
+	    @include mq($to: map-get($mq-breakpoints, palm)) {
+	        @content;
+	    }
+	} @else {
+	    @warn "Unfortunately, no value could be retrieved. Please make sure it is defined in `$mq-breakpoints` map.";
+	}
+}
+
+@mixin not-palm {
+	@if map-has-key($mq-breakpoints, lap) {
+		$lap-start: nth(map-get($mq-breakpoints, lap),1);
+	    @include mq($from: map-get($mq-breakpoints, $lap-start)) {
+	        @content;
+	    }
+	} @else {
+	    @warn "Unfortunately, no value could be retrieved. Please make sure it is defined in `$mq-breakpoints` map.";
+	}
+}
+
+@mixin lap {
+	@if map-has-key($mq-breakpoints, lap) {
+	    $lap-start: nth(map-get($mq-breakpoints, lap),1);
+	    $lap-end: nth(map-get($mq-breakpoints, lap),2);
+	    @include mq($from: $lap-start, $to: $lap-end) {
+	        @content;
+	    }
+	} @else {
+	    @warn "Unfortunately, no value could be retrieved. Please make sure it is defined in `$mq-breakpoints` map.";
+	}
+}
+
+@mixin portable {
+	@if map-has-key($mq-breakpoints, portable) {
+	    @include mq($to: map-get($mq-breakpoints, portable)) {
+	        @content;
+	    }
+	} @else {
+	    @warn "Unfortunately, no value could be retrieved. Please make sure it is defined in `$mq-breakpoints` map.";
+	}
+}
+
+@mixin desk {
+	@if map-has-key($mq-breakpoints, desk) {
+	    @include mq($from: map-get($mq-breakpoints, desk)) {
+	        @content;
+	    }
+	} @else {
+	    @warn "Unfortunately, no value could be retrieved. Please make sure it is defined in `$mq-breakpoints` map.";
+	}
+}

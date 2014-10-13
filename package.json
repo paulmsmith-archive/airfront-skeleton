@@ -43,9 +43,9 @@
     "gulp-ruby-sass": "^0.6.0",
     "gulp-shell": "^0.2.9",
     "gulp-template": "^0.1.2",
-    "gulp-uglify": "^0.3.1",
+    "gulp-uglify": "^0.3.2",
     "gulp-util": "^2.2.20",
-    "gulp-watch": "^0.6.9",
+    "gulp-watch": "^0.6.10",
     "inquirer": "^0.5.1"
   }
 }

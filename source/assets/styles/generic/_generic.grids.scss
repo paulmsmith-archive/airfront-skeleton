@@ -1,3 +1,6 @@
+// this is essentially Harry's CSS Wizardry Grids but modified to
+// suit my needs.
+
 @mixin silent-relative {
     position:relative;
 }
@@ -254,7 +257,7 @@
 
 }
 
-/* base width classes 
+/* base width classes (across all breakpoints)
 ---------------------------------------------------------------------------- */
 
 @include device-type($gen-classes: $grid-generate-classes);
