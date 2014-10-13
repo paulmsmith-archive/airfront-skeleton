@@ -1,11 +1,11 @@
-// #########################################################
+// ##################################################################
 // generic reset half-inched from Mr Harry Roberts
-// #########################################################
+// ##################################################################
 
-/**
- * As well as using normalize.css, it is often advantageous to remove all
- * margins from certain elements.
- */
+// *
+//  * As well as using normalize.css, it is often advantageous to 
+// remove all  * margins from certain elements.
+ 
 body,
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
@@ -17,34 +17,32 @@ hr {
     padding: 0;
 }
 
-/**
- * Give a help cursor to elements that give extra info on `:hover`.
- */
+// *
+//  * Give a help cursor to elements that give extra info on `:hover`.
+ 
 abbr[title],
 dfn[title] {
     cursor: help;
 }
 
-/**
- * Remove underlines from potentially troublesome elements.
- */
+// *
+//  * Remove underlines from potentially troublesome elements.
 u,
 ins {
     text-decoration: none;
 }
 
-/**
- * Apply faux underlines to inserted text via `border-bottom`.
- */
+// *
+//  * Apply faux underlines to inserted text via `border-bottom`.
 ins {
     border-bottom: 1px solid;
 }
 
-/**
- * Where `margin-bottom` is concerned,this value will be the same as the
- * base line-height. This allows us to keep a consistent vertical rhythm.
- * As per: csswizardry.com/2012/06/single-direction-margin-declarations
- */
+// 
+// Where `margin-bottom` is concerned,this value will be the same as the
+// base line-height. This allows us to keep a consistent vertical rhythm.
+// As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ 
 
 h1, h2, h3, h4, h5, h6, hgroup, 
 ul, ol, dl, 
@@ -57,10 +55,8 @@ pre,
     margin-bottom: ($base-spacing-unit / $base-font-size) * 1rem;
 }
 
-/**
-* Where `margin-left` is concerned we want to try and indent certain elements
-* by a consistent amount. Define that amount once,here.
-*/
+// Where `margin-left` is concerned we want to try and indent certain elements
+// by a consistent amount. Define that amount once,here.
 
 ul, ol, dd,
 %margin-left {

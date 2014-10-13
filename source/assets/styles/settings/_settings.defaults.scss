@@ -5,31 +5,66 @@
 // overridden in a seperate file
 // #############################################################
 
-// configuration variables
+// configuration variables for IE and old browser support
 // -------------------------------------------------------------
 
+// this variable is set to true in the IE stylesheet so IE 
+// specific crud is outputted there. Leave this as false here.
 $legacy-ie: false !default;
-$mq-support: true !default;
 
-// High-level base settings
+// inversely setting this variable to false in the IE scss file
+// will mean that all @media queries will be rasterized, 
+// relying on the cascade itself. Leave this as true here.
+$mq-responsive: true !default;
+
+// base settings
 // -------------------------------------------------------------
 $base-font-size:          16px !default;
 $base-line-height:        round($base-font-size*1.25) !default;
 $base-text-color:         #333 !default;
 $base-background-color:   #fff !default;
 
-// Headings (to be converted to rems in use)
-// -------------------------------------------------------------
-$heading-size-1:          36px !default;
-$heading-size-2:          30px !default;
-$heading-size-3:          24px !default;
-$heading-size-4:          20px !default;
-$heading-size-5:          16px !default;
-$heading-size-6:          14px !default;
-
-
 // spacing sizes (unitless)
 // -------------------------------------------------------------
 $base-spacing-unit:           $base-line-height !default;
 $base-spacing-unit--small:    round($base-line-height / 2) !default;
 $base-spacing-unit--large:    round($base-line-height * 2) !default;
+
+// Name your breakpoints in a way that creates a ubiquitous language
+// across team members. It will improve communication between
+// stakeholders, designers, developers, and testers.
+
+$mq-breakpoints: (
+    palm: 480px,
+    lap: (481px, 1023px),
+    portable: 1023px,
+    desk: 1024px
+) !default;
+
+// Define the breakpoint from the $mq-breakpoints list that should
+// be used as the target width when outputting a static stylesheet
+// (i.e. when $mq-responsive is set to 'false').
+$mq-static-breakpoint: desktop !default;
+
+$grid-mobile-first:         true !default;
+
+// gutter between grid columns/items
+$grid-gutter:               20px !default;
+
+// generate grid push classes
+$grid-push:                 false !default;
+
+// generate grid pull classes
+$grid-pull:                 false !default;
+
+// fix display: inline-block by removing white-space from mark-up (false!)
+$grid-use-markup-fix:       false !default;
+
+// generate .classes for the grids or keep them as placeholder/silent by setting to false
+$grid-generate-classes: 	true !default;
+
+// generate smaller grid divisions (8ths, 10ths, 12ths, etc)
+$grid-generate-small-divisions: true !default;
+
+// generate smaller grid divisions (8ths, 10ths, 12ths, etc) for palm
+$grid-generate-small-divisions-palm: $grid-generate-small-divisions !default;

@@ -29,6 +29,6 @@
   "devDependencies": {
     "modernizr": "~2.8.3",
     "normalize-css": "~3.0.1",
-    "sass-mq": "~2.0.1"
+    "sass-mq": "~2.1.1"
   }
 }

@@ -1,18 +1,23 @@
 ---
-title: "Test"
+title: "Index template"
 bodyclass: ["test","blah"]
 ---
 
-	<% include data = { :path => "components/sample/sample",
-		:modifiers => ["test"] 
-	} do %><% end %>
-
-	<% include data = { :path => "components/test/test",
-		:modifiers => ["test"] 
-	} do %><% end %>
-
 <h1><%= current_page.data.title %></h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, ullam necessitatibus eius recusandae similique ab. Eveniet, id, repudiandae, quisquam, magnam quaerat iste excepturi accusamus maiores voluptatibus distinctio provident perspiciatis dignissimos?</p>
+<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Itaque, ullam necessitatibus eius recusandae similique ab. Eveniet, id, repudiandae, quisquam, magnam quaerat iste excepturi accusamus maiores voluptatibus distinctio provident perspiciatis dignissimos?</p>
+
+<% include data = { :path => "components/sample/sample",
+	:modifiers => ["sample"] 
+} do %><% end %>
+
+<% include data = { :path => "components/test/test",
+	:modifiers => ["test"] 
+} do %><% end %>
+
+<!-- example of block "before body close" note where this is outputted -->
+<% content_for :before_body_close do %>
+	<p>before body close</p>
+<% end %>
 
 <div class="grid">
 
@@ -31,3 +36,21 @@ bodyclass: ["test","blah"]
 
 </div>
 <!-- /.grid -->
+
+<div class="portable-test">
+	<p>lorem</p>
+</div>
+<!-- /.portable-test -->
+
+<ul>
+	<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae eveniet ratione rerum ex itaque laboriosam similique facilis repellat optio, veniam consequatur tempora excepturi corrupti nobis possimus molestias alias, numquam deleniti.</li>
+	<li>Eveniet voluptas magnam enim qui nam natus deserunt necessitatibus corrupti reprehenderit laudantium, eos modi, quas suscipit vitae, fugit sit hic saepe repudiandae debitis animi quidem. Commodi, voluptates sint ducimus totam!</li>
+	<li>Dolorum hic laboriosam deleniti, ab atque vitae accusantium exercitationem vero porro at ducimus minus repudiandae fugiat, consectetur fuga rem ullam eos velit, tempore non quas, impedit repellat consequatur ex? Quaerat?</li>
+	<li>Sapiente tempora alias non quis saepe, eveniet dignissimos, quam. Dolores itaque perferendis a dolor quod, nobis consequuntur, veniam quibusdam debitis corrupti ipsum, obcaecati aperiam aspernatur nulla id mollitia dolorum nam?</li>
+	<li>Soluta voluptatem voluptas porro debitis corrupti quo quam assumenda, voluptatum et nesciunt, nemo eos explicabo similique dolores nulla dolore delectus modi voluptates laboriosam ab alias obcaecati sequi, facere at. Corporis?</li>
+</ul>
+
+<!-- example of block "before body close" note where this is outputted -->
+<% content_for :after_body_open do %>
+	<p>after body open</p>
+<% end %>
